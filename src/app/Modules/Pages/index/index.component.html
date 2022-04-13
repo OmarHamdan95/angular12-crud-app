@@ -48,11 +48,11 @@
       <td>{{ post.firstname }}</td>
       <td>{{ post.lastname }}</td>
       <td>{{ post.email }}</td>
-      <td>{{ post.birthdate }}</td>
+      <td>{{ post.birthdate | date: 'dd-MM-yyyy'}}</td>
       <td>Rp. {{ post.basic_salary | numberFormat }}</td>
       <td>{{ post.status }}</td>
       <td>{{ post.groups }}</td>
-      <td>{{ post.description }}</td>
+      <td>{{ post.description | date: 'dd-MM-yyyy' }}</td>
       <td style="text-align: center;">
         <a href="#" [routerLink]="['/employee/', post.id, 'view']" class="btn btn-info">View</a>
           <a href="#" [routerLink]="['/employee/', post.id, 'edit']" class="btn btn-warning">Edit</a>
