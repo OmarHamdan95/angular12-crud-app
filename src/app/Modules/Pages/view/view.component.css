@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(to right, #D74177, #FFE98A);
+  font-family: Helvetica;
+  text-align: center;
+  color: white;
+}
+
+.card {
+  width: 900px;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 10px #31C5D7;
+  transition: width 2s, background-color 1s, box-shadow 1s;
+  border-radius: 10px;
+  color: black;
+}
+
+.card:hover {
+  box-shadow: 5px 8px 8px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+img{
+  width: 200px;
+  height: 200px;
+  margin-top: 40px;
+}
+
+.wrapper {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+}
+

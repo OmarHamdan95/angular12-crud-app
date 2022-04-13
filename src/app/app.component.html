@@ -1,0 +1,26 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">TEST</a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/employee" class="nav-link" *ngIf="isLoggedIn" routerLink="employee">Employee</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</div>

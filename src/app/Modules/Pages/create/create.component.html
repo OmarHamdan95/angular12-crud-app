@@ -1,0 +1,179 @@
+<div class="container">
+  <h1>Create New Employee</h1>
+  <a href="#" routerLink="../../" class="btn btn-primary">Back</a>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input
+        formControlName="username"
+        id="username"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.username.touched && f.username.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.username.errors?.required">Username is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstname">Firstname:</label>
+      <input
+        formControlName="firstname"
+        id="firstname"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.firstname.touched && f.firstname.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.firstname.errors?.required">Firstname is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Lastname:</label>
+      <input
+        formControlName="lastname"
+        id="lastname"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.lastname.touched && f.lastname.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.lastname.errors?.required">Lastname is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        formControlName="password"
+        id="password"
+        type="password"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.password.touched && f.password.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.password.errors?.required">Password is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        formControlName="email"
+        id="email"
+        type="text"
+        class="form-control"
+        required
+      />
+      <div
+        *ngIf="f.email.touched && f.email.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.email.errors?.required">Email is required.</div>
+        <div *ngIf="f.email.errors?.email">Format Email wrong.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthdate">Birthdate:</label>
+      <input
+        formControlName="birthdate"
+        id="birthdate"
+        type="date"
+        class="form-control"
+        max="{{currentDate|date:'yyyy-MM-dd'}}"
+      />
+      <div
+        *ngIf="f.birthdate.touched && f.birthdate.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.birthdate.errors?.required">Birthdate is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="basic_salary">Basic Salary:</label>
+      <input
+        formControlName="basic_salary"
+        id="basic_salary"
+        type="number"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.basic_salary.touched && f.basic_salary.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.basic_salary.errors?.required">Basic Salary is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <input
+        formControlName="status"
+        id="status"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.status.touched && f.status.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.status.errors?.required">Status is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="groups">Group:</label>
+        <select id="cars" name="cars" formControlName="groups" class="form-control">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+          <option value="toyota">Toyota</option>
+          <option value="honda">Honda</option>
+          <option value="volks">Volks</option>
+          <option value="jaguar">Jaguar</option>
+          <option value="hyundai">Hyundai</option>
+          <option value="isuzu">Isuzu</option>
+
+        </select>
+        <div
+        *ngIf="f.groups.touched && f.groups.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.groups.errors?.required">Group is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input
+        formControlName="description"
+        id="description"
+        type="date"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.description.touched && f.description.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.description.errors?.required">Description is required.</div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    <a class="btn btn-danger" href="employee">
+      Cancel
+    </a>
+  </form>
+</div>

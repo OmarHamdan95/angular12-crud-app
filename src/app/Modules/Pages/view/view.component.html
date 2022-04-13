@@ -1,0 +1,66 @@
+<div class="container">
+  <h1>Detail Employee</h1>
+  <a href="#" routerLink="../../" class="btn btn-primary">Back</a>
+
+  <div class="wrapper" style="margin-top: 20px;">
+    <div class="card">
+      <div class="row">
+        <div class="col-2">
+          <img src="../../../../assets/image.jpg" alt="" />
+        </div>
+        <div class="col">
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <strong>ID:</strong>
+              <p>{{ post?.id }}</p>
+            </div>
+            <div class="col">
+              <strong>Username:</strong>
+            <p>{{ post?.username }}</p>
+            </div>
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <strong>Firstname:</strong>
+              <p>{{ post?.firstname }}</p>
+            </div>
+            <div class="col">
+              <strong>Lastname:</strong>
+              <p>{{ post?.lastname }}</p>
+            </div>
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <strong>Email:</strong>
+              <p>{{ post?.email }}</p>
+            </div>
+            <div class="col">
+              <strong>Birthdate:</strong>
+              <p>{{ post?.birthdate }}</p>
+            </div>
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <strong>Basic Salary:</strong>
+              <p>Rp. {{ post?.basic_salary | numberFormat }}</p>
+            </div>
+            <div class="col">
+              <strong>Status:</strong>
+              <p>{{ post?.status }}</p>
+            </div>
+          </div>
+          <div class="row" style="text-align: center;">
+            <div class="col">
+              <strong>Groups:</strong>
+              <p>{{ post?.groups }}</p>
+            </div>
+            <div class="col">
+              <strong>Description:</strong>
+              <p>{{ post?.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
