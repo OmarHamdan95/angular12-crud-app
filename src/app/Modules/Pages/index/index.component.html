@@ -24,18 +24,18 @@
       </div>
     </div>
   </div>
-  <table class="table table-bordered">
+  <table matSort (matSortChange)="sortData($event)" class="table table-bordered">
     <tr style="text-align: center;">
       <th>No</th>
-      <th>Username</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Birthdate</th>
-      <th>Basic Salary</th>
-      <th>Status</th>
-      <th>Group</th>
-      <th>Description</th>
+      <th mat-sort-header="username">Username</th>
+      <th mat-sort-header="firstname">First Name</th>
+      <th mat-sort-header="lastname">Last Name</th>
+      <th mat-sort-header="email">Email</th>
+      <th mat-sort-header="birthdate">Birthdate</th>
+      <th mat-sort-header="basic_salary">Basic Salary</th>
+      <th mat-sort-header="status">Status</th>
+      <th mat-sort-header="groups">Group</th>
+      <th mat-sort-header="description">Description</th>
       <th>Action</th>
     </tr>
     <tr *ngFor="let post of posts | filter: searchValue | paginate : {
@@ -48,11 +48,11 @@
       <td>{{ post.firstname }}</td>
       <td>{{ post.lastname }}</td>
       <td>{{ post.email }}</td>
-      <td>{{ post.birthdate | date: 'dd-MM-yyyy'}}</td>
+      <td>{{ post.birthdate | date:'dd-MM-yyyy' }}</td>
       <td>Rp. {{ post.basic_salary | numberFormat }}</td>
       <td>{{ post.status }}</td>
       <td>{{ post.groups }}</td>
-      <td>{{ post.description | date: 'dd-MM-yyyy' }}</td>
+      <td>{{ post.description | date:'dd-MM-yyyy' }}</td>
       <td style="text-align: center;">
         <a href="#" [routerLink]="['/employee/', post.id, 'view']" class="btn btn-info">View</a>
           <a href="#" [routerLink]="['/employee/', post.id, 'edit']" class="btn btn-warning">Edit</a>
