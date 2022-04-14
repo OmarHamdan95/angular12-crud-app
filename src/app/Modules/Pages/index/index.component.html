@@ -5,17 +5,13 @@
     </div>
   </div>
   <div class="row">
-    <form class="date-block" [formGroup]="filterForm">
       <div class="col">
         <div class="d-flex bd-highlight mb-2">
           <div class="p-2 bd-highlight">
-            Min Salary: <input type="number" placeholder="Min Salary" formControlName="min_salary" required>
-            Max Salary: <input type="number" placeholder="Max Salary" formControlName="max_salary" required>
-            <button class="btn btn-primary" [disabled]="!filterForm.valid" (click)="onClick()" style="margin-left: 10px;">Search</button>
+            Search: <input type="text" [(ngModel)]="searchValue" (input)="search()" placeholder="Search">
           </div>
         </div>
       </div>
-    </form>
     <div class="col">
       <div class="d-flex bd-highlight mb-2" style="margin-left: 80%;">
         <div class="p-2 bd-highlight">
@@ -42,7 +38,7 @@
       <th mat-sort-header="description">Description</th>
       <th>Action</th>
     </tr>
-    <tr *ngFor="let post of posts | paginate : {
+    <tr *ngFor="let post of posts | filter: searchValue | paginate : {
       itemsPerPage: tableSize,
       currentPage: page,
       totalItems: count

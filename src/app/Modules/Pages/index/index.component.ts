@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
   count = 0;
   tableSize = 5;
   tableSizes = [5, 10, 20];
+  searchValue: string = '';
 
   constructor(public service: EmployeeService, private router: Router) { }
 
@@ -32,32 +33,16 @@ export class IndexComponent implements OnInit {
     )
   }
 
-  filterForm = new FormGroup({
-    min_salary: new FormControl('', [Validators.required]),
-    max_salary: new FormControl('', [Validators.required]),
-
-  });
-
-  get min_salary() {
-    return this.filterForm.get('min_salary').value;
-  }
-  get max_salary() {
-    return this.filterForm.get('max_salary').value;
-  }
-
-  onClick(){
-    const min = this.min_salary;
-    const max = this.max_salary;
-    if(min >= max){
-      alert("Min Salary tidak boleh lebih besar di bandingkan dengan Max Salary");
-    }else{
-      this.service.getDataBySalary(min, max).subscribe(
+  search() {
+    this.posts = this.posts.filter(res => {
+        return res.username.toLowerCase().match(this.searchValue.toLowerCase());
+      }),
+      this.service.getAll().subscribe(
         data => {
+          console.log(data);
           this.posts = data;
-          this.router.navigate(['/employee'], { queryParams: { min: min, max: max } });
         }
       )
-    }
   }
 
   sortData(sort: Sort) {

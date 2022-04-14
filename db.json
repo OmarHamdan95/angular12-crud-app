@@ -1294,11 +1294,16 @@
       "lastname": "Destiny Deleon",
       "email": "neque.tellus@google.edu",
       "birthdate": "2023-02-11",
-      "basic_salary": 21290462,
+      "basic_salary": 10,
       "status": "Cum Sociis Institute",
       "password": "UDU09COT6YB",
       "description": "2023-02-13",
       "groups": "Siedlce"
+    },
+    {
+      "username": "admin",
+      "password": "password",
+      "id": 101
     }
   ]
 }

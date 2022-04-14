@@ -6,7 +6,7 @@ export interface Employee {
   password: string,
   email: string,
   birthdate: Date,
-  basic_salary: number,
+  basic_salary: string,
   status: string,
   groups: string,
   description: Date
