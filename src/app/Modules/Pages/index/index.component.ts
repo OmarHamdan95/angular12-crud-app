@@ -2,6 +2,8 @@ import { EmployeeService } from 'src/app/_services/employee.service';
 import { Employee } from './../../../Models/Employee';
 import { Component, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -15,9 +17,8 @@ export class IndexComponent implements OnInit {
   count = 0;
   tableSize = 5;
   tableSizes = [5, 10, 20];
-  searchValue: string = '';
 
-  constructor(public service: EmployeeService) { }
+  constructor(public service: EmployeeService, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
@@ -29,6 +30,34 @@ export class IndexComponent implements OnInit {
           this.posts = data;
         }
     )
+  }
+
+  filterForm = new FormGroup({
+    min_salary: new FormControl('', [Validators.required]),
+    max_salary: new FormControl('', [Validators.required]),
+
+  });
+
+  get min_salary() {
+    return this.filterForm.get('min_salary').value;
+  }
+  get max_salary() {
+    return this.filterForm.get('max_salary').value;
+  }
+
+  onClick(){
+    const min = this.min_salary;
+    const max = this.max_salary;
+    if(min >= max){
+      alert("Min Salary tidak boleh lebih besar di bandingkan dengan Max Salary");
+    }else{
+      this.service.getDataBySalary(min, max).subscribe(
+        data => {
+          this.posts = data;
+          this.router.navigate(['/employee'], { queryParams: { min: min, max: max } });
+        }
+      )
+    }
   }
 
   sortData(sort: Sort) {
@@ -62,18 +91,6 @@ export class IndexComponent implements OnInit {
           return 0;
       }
     });
-  }
-
-  search() {
-    this.posts = this.posts.filter(res => {
-        return res.username.toLowerCase().match(this.searchValue.toLowerCase());
-      }),
-      this.service.getAll().subscribe(
-        data => {
-          console.log(data);
-          this.posts = data;
-        }
-      )
   }
 
   deletePost(id:number){

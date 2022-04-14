@@ -31,6 +31,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { NumberFormatPipe } from './Modules/number-format.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatInputModule,
     BrowserAnimationsModule,
     CommonModule,
+    MatAutocompleteModule,
     MatButtonModule,
     MatButtonModule,
     MatCardModule,
@@ -69,7 +72,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatSelectModule,
     NgxMatSelectSearchModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

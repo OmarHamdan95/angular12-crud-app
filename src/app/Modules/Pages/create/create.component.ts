@@ -12,11 +12,14 @@ export class CreateComponent implements OnInit {
 
   form!: FormGroup;
   currentDate : Date =new Date();
+  public data = ['volvo', 'saab', 'mercedes', 'audi', 'toyota', 'honda', 'volks', 'jaguar', 'hyundai', 'isuzu'];
+  public placeholder: string = 'Enter the Car Brand';
 
   constructor(
     public service: EmployeeService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({

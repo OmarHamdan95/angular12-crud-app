@@ -58,6 +58,10 @@ export class EmployeeService {
     )
   }
 
+  getDataBySalary(min: any, max: any): Observable<any>{
+    return this.httpClient.get(this.apiURL + '/employee' + "?basic_salary=" + min + "&basic_salary=" + max);
+  }
+
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

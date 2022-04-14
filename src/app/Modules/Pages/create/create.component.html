@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Create New Employee</h1>
-  <a href="#" routerLink="../../" class="btn btn-primary">Back</a>
+  <a href="#" routerLink="../" class="btn btn-primary">Back</a>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-group">
       <label for="username">Username:</label>
@@ -135,19 +135,23 @@
 
     <div class="form-group">
       <label for="groups">Group:</label>
-        <select id="cars" name="cars" formControlName="groups" class="form-control">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-          <option value="toyota">Toyota</option>
-          <option value="honda">Honda</option>
-          <option value="volks">Volks</option>
-          <option value="jaguar">Jaguar</option>
-          <option value="hyundai">Hyundai</option>
-          <option value="isuzu">Isuzu</option>
+        <ng-autocomplete #ngAutoCompleteStatic
+                         [data]="data"
+                         formControlName="groups"
+                         [initialValue]=""
+                         [placeholder]="placeholder"
+                         notFoundText="Not found"
+                         [itemTemplate]="itemTemplateStatic"
+                         [notFoundTemplate]="notFoundTemplate">
+        </ng-autocomplete>
 
-        </select>
+        <ng-template #itemTemplateStatic let-item>
+          <a [innerHTML]="item"></a>
+        </ng-template>
+
+        <ng-template #notFoundTemplate let-notFound>
+          <div [innerHTML]="notFound"></div>
+        </ng-template>
         <div
         *ngIf="f.groups.touched && f.groups.invalid"
         class="alert alert-danger"

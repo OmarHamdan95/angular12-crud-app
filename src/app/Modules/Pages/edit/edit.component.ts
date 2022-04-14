@@ -15,6 +15,8 @@ export class EditComponent implements OnInit {
   post!: Employee;
   form!: FormGroup;
   currentDate : Date =new Date();
+  public data = ['volvo', 'saab', 'mercedes', 'audi', 'toyota', 'honda', 'volks', 'jaguar', 'hyundai', 'isuzu'];
+  public placeholder: string = 'Enter the Car Brand';
 
   constructor(
     public service: EmployeeService,

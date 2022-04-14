@@ -1,17 +1,17 @@
 {
   "employee": [
     {
-      "id": 1,
       "username": "Lamar Mclaughlin",
       "firstname": "Eve Blankenship",
       "lastname": "Nigel Richardson",
+      "password": "KVD29FDL3OJ",
       "email": "quis.diam@hotmail.org",
       "birthdate": "2022-04-16",
       "basic_salary": 24054939,
       "status": "Ultricies Ornare Elit Associates",
-      "password": "KVD29FDL3OJ",
+      "groups": "volvo",
       "description": "2022-04-13",
-      "groups": "San Miguel"
+      "id": 1
     },
     {
       "id": 2,
