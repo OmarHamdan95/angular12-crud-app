@@ -27,10 +27,7 @@ export class AuthService {
       this._isLoggedIn$.next(!!token);
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(this.apiURL + '/employee', {
-      username,
-      password
-    }, httpOptions);
+  getUsers(){
+    return this.http.get(this.apiURL + '/employee');
   }
 }

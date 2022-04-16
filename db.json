@@ -1289,7 +1289,7 @@
     },
     {
       "id": 100,
-      "username": "Dorian Berry",
+      "username": "DorianBerry",
       "firstname": "Mara Mclean",
       "lastname": "Destiny Deleon",
       "email": "neque.tellus@google.edu",
@@ -1301,9 +1301,17 @@
       "groups": "Siedlce"
     },
     {
+      "id": 101,
       "username": "admin",
-      "password": "password",
-      "id": 101
+      "firstname": "admin",
+      "lastname": "admin",
+      "email": "admin@gmail.com",
+      "birthdate": "2023-02-11",
+      "basic_salary": 1000000,
+      "status": "admin",
+      "password": "admin",
+      "description": "2023-02-13",
+      "groups": "toyota"
     }
   ]
 }

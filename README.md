@@ -22,8 +22,12 @@ dengan cara:
 
 Metode yang di gunakan adalah JWT (JSON Web Token) dimana data akan tersimpan dalam session storage browser.
 
-# Address Localhost
+## Address Localhost
 
 Alamat untuk fake DB nya antara lain:
 Home: `http://localhost:3000`
 Employee: `http://localhost:3000/employee`
+
+## Login Access
+
+username: admin, password: admin
