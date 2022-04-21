@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         if(item.username === data.username && item.password === data.password){
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
-          localStorage.setItem("isLoggedIn","true");
           this.isLoggedIn = true;
           this.reloadPage();
         }
