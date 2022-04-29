@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Models/Employee';
 import { AuthService } from 'src/app/_services/auth.service';
+import { MapperService } from 'src/app/_services/mapper.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
@@ -11,11 +13,14 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   login:any = FormGroup;
-  users:any = [];
+  users:any = {username : "mahbob" , password :"mahbob001"};
+  dest : User;
   isLoggedIn = false;
-  constructor(private fb:FormBuilder, private router:Router, private commServ:AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private fb:FormBuilder, private router:Router, private commServ:AuthService, private tokenStorage: TokenStorageService, 
+    private mapperService : MapperService) { }
 
   ngOnInit(): void {
+    this.mapper();
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
     }
@@ -23,10 +28,10 @@ export class LoginComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required]
     })
-    this.commServ.getUsers().subscribe((data:any)=>{
-      console.log(data);
-      this.users = data;
-    });
+    // this.commServ.getUsers().subscribe((data:any)=>{
+    //   console.log(data);
+    //   this.users = data;
+    // });
   }
   loginForm(data:any){
     console.log(data)
@@ -37,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
           this.isLoggedIn = true;
-          this.reloadPage();
+          this.mapper();
         }
         else{
           localStorage.clear();
@@ -49,5 +54,10 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  mapper(){
+    this.dest = this.mapperService.adapt<User>(this.users,User, [{sourceFiledName : "password" , destiniationFiledName :"passwords"}])
+    console.log(this.dest);
   }
 }

@@ -11,3 +11,20 @@ export interface Employee {
   groups: string,
   description: Date
 }
+
+
+export class mapperConfig {
+  sourceFiledName: string;
+  destiniationFiledName: string;
+}
+
+
+export class User  {
+  
+  userName: string;
+  passwords: string;
+}
+
+// export declare class EntityBase {
+//   filedName : any;
+// }
