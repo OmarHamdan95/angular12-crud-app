@@ -1,3 +1,6 @@
+import { EntityBase } from "./EntityBase";
+
+
 export interface Employee {
   id: number,
   username: string,
@@ -19,12 +22,13 @@ export class mapperConfig {
 }
 
 
-export class User  {
-  
+export class User extends EntityBase {
   userName: string;
   passwords: string;
-}
 
-// export declare class EntityBase {
-//   filedName : any;
-// }
+  constructor() {
+    super();
+    debugger;
+    this.filedName = Object.getOwnPropertyNames(this);
+  }
+}
