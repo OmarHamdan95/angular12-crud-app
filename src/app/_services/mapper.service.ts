@@ -17,7 +17,7 @@ export class MapperService {
 
         let destiniation = new destiniationClass();
 
-        let y = destiniation.filedName;
+        //let y = destiniation.filedName;
 
         Object.keys(source).forEach(function (key, index) {
             if (source[key]) {

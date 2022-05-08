@@ -25,10 +25,4 @@ export class mapperConfig {
 export class User extends EntityBase {
   userName: string;
   passwords: string;
-
-  constructor() {
-    super();
-    debugger;
-    this.filedName = Object.getOwnPropertyNames(this);
-  }
 }

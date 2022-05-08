@@ -1,4 +1,4 @@
 
 export class EntityBase {
-    filedName: any;
+    id: number;
   }
