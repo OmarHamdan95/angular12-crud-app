@@ -28,10 +28,7 @@ export class LoginComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required]
     })
-    // this.commServ.getUsers().subscribe((data:any)=>{
-    //   console.log(data);
-    //   this.users = data;
-    // });
+    
   }
   loginForm(data:any){
     console.log(data)
@@ -58,6 +55,5 @@ export class LoginComponent implements OnInit {
 
   mapper(){
     this.dest = this.mapperService.adapt<User>(this.users,User, [{sourceFiledName : "password" , destiniationFiledName :"passwords"}])
-    console.log(this.dest);
   }
 }

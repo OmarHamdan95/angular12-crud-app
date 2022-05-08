@@ -9,15 +9,12 @@ import { EntityBase } from '../Models/EntityBase';
 export class MapperService {
 
     constructor() {
-        console.log("Mapper Service Call")
     }
 
     adapt<T extends EntityBase>(source: any, destiniationClass: new() => T, config: Array<mapperConfig> = null): any {
         if (!source) return null;
 
         let destiniation = new destiniationClass();
-
-        //let y = destiniation.filedName;
 
         Object.keys(source).forEach(function (key, index) {
             if (source[key]) {
