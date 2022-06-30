@@ -33,6 +33,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import {CommandComponent} from "./Modules/Pages/command/command.component";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
     LoginComponent,
     BoardUserComponent,
     NumberFormatPipe,
+    CommandComponent
   ],
   imports: [
     BrowserModule,

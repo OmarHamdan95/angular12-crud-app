@@ -13,10 +13,10 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 })
 export class LoginComponent implements OnInit {
   login:any = FormGroup;
-  users:any = {username : "mahbob" , password :"mahbob001"};
+  users:any = [{username : "mahbob" , password :"mahbob001"}];
   dest : User;
   isLoggedIn = false;
-  constructor(private fb:FormBuilder, private router:Router, private commServ:AuthService, private tokenStorage: TokenStorageService, 
+  constructor(private fb:FormBuilder, private router:Router, private commServ:AuthService, private tokenStorage: TokenStorageService,
     private mapperService : MapperService) { }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       username:['',Validators.required],
       password:['',Validators.required]
     })
-    
+
   }
   loginForm(data:any){
     console.log(data)

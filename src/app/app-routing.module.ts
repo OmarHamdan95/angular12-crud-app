@@ -6,6 +6,7 @@ import { ViewComponent } from './Modules/Pages/view/view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
+import {CommandComponent} from "./Modules/Pages/command/command.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'employee', component: IndexComponent },
       { path: 'employee/:id/view', component: ViewComponent },
       { path: 'employee/create', component: CreateComponent },
-      { path: 'employee/:id/edit', component: EditComponent }
+      { path: 'employee/:id/edit', component: EditComponent },
+      { path: 'command', component: CommandComponent }
     ]
   }
 ];
